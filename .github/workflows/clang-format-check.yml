@@ -1,0 +1,13 @@
+name: clang-format Check
+on: [push, pull_request]
+jobs:
+  formatting-check:
+    name: Formatting Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run clang-format style check for C/C++/Obj-C programs
+        uses: jidicula/clang-format-action@7709c2a70b025f444ab479907c0d72f3beea5a63
+        with:
+          clang-format-version: '13'
+          check-path: 'apple'
