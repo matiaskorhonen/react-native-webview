@@ -9,7 +9,7 @@
 
 @interface RNCWKProcessPoolManager : NSObject
 
-+ (instancetype) sharedManager;
-- (WKProcessPool *)sharedProcessPool;
++ (instancetype)sharedManager;
+- (WKProcessPool*)sharedProcessPool;
 
 @end

@@ -5,27 +5,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import <Foundation/Foundation.h>
 #import "RNCWKProcessPoolManager.h"
+#import <Foundation/Foundation.h>
 
-@interface RNCWKProcessPoolManager() {
-    WKProcessPool *_sharedProcessPool;
+@interface RNCWKProcessPoolManager () {
+    WKProcessPool* _sharedProcessPool;
 }
 @end
 
 @implementation RNCWKProcessPoolManager
 
-+ (id) sharedManager {
-    static RNCWKProcessPoolManager *_sharedManager = nil;
++ (id)sharedManager
+{
+    static RNCWKProcessPoolManager* _sharedManager = nil;
     @synchronized(self) {
-        if(_sharedManager == nil) {
+        if (_sharedManager == nil) {
             _sharedManager = [[super alloc] init];
         }
         return _sharedManager;
     }
 }
 
-- (WKProcessPool *)sharedProcessPool {
+- (WKProcessPool*)sharedProcessPool
+{
     if (!_sharedProcessPool) {
         _sharedProcessPool = [[WKProcessPool alloc] init];
     }
@@ -33,4 +35,3 @@
 }
 
 @end
-
